@@ -44,12 +44,11 @@ def one_user(user_id):
         user = db.session.query(User).get(user_id)
         if user is None:
             return "Такого пользователя не найдено"
-        user.id = user_data["id"],
-        user.first_name = user_data["first_name"],
-        user.last_name = user_data["last_name"],
-        user.age = user_data["age"],
-        user.email = user_data["email"],
-        user.role = user_data["role"],
+        user.first_name = user_data["first_name"]
+        user.last_name = user_data["last_name"]
+        user.age = user_data["age"]
+        user.email = user_data["email"]
+        user.role = user_data["role"]
         user.phone = user_data["phone"]
         db.session.add(user)
         db.session.commit()
@@ -100,14 +99,13 @@ def one_order(order_id):
         order = db.session.query(Order).get(order_id)
         if order is None:
             return "Такого пользователя не найдено"
-        order.id = order_data["id"],
-        order.name = order_data["name"],
-        order.description = order_data["description"],
-        order.start_date = datetime.date(year=y_start, month=m_start, day=d_start),
-        order.end_data = datetime.date(year=y_end, month=m_end, day=d_end),
-        order.address = order_data["address"],
-        order.price = order_data["price"],
-        order.customer_id = order_data["customer_id"],
+        order.name = order_data["name"]
+        order.description = order_data["description"]
+        order.start_date = datetime.date(year=y_start, month=m_start, day=d_start)
+        order.end_data = datetime.date(year=y_end, month=m_end, day=d_end)
+        order.address = order_data["address"]
+        order.price = order_data["price"]
+        order.customer_id = order_data["customer_id"]
         order.executor_id = order_data["executor_id"]
         db.session.add(order)
         db.session.commit()
@@ -152,8 +150,7 @@ def one_offer(offer_id):
         offer = db.session.query(Offer).get(offer_id)
         if offer is None:
             return "Такого заказа не найдено"
-        offer.id = offer_data["id"],
-        offer.order_id = offer_data["order_id"],
+        offer.order_id = offer_data["order_id"]
         offer.executor_id = offer_data["executor_id"]
         db.session.add(offer)
         db.session.commit()
